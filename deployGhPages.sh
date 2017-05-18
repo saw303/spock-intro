@@ -6,21 +6,18 @@ BASEDIR=presentation/build
 SOURCEDIR="$BASEDIR/asciidoc/revealjs"
 WORKINGDIR="$BASEDIR/gh-pages"
 
-mkdir -p $WORKINGDIR
-cd $WORKINGDIR
+git clone git@github.com:saw303/spock-intro.git $WORKINGDIR
 
-git clone git@github.com:saw303/spock-intro.git
+cd $WORKINGDIR
 
 git checkout gh-pages
 
 git rm -rf .
 
-cp -r $SOURCEDIR/* $WORKINGDIR
+cp -r ../asciidoc/revealjs/*  .
+mv spock-intro.html index.html
 
 git add .
 
 git commit -m "Updated presentation"
 git push
-
-cd -
-rm -rf $WORKINGDIR
