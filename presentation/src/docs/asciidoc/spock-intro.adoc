@@ -22,23 +22,27 @@ Silvio Wangler <silvio.wangler@gmail.com>
 * Ein Testing Framework für Java Applikationen
 * Inspiriert durch JUnit, Mockito, jMock, Groovy, Scala
 * Es lässt einem Spezifikationen für eine bestimmte Klasse oder eine ganze Applikation schreiben
-* Es lässt Tests, durch den Einsatz einer DSL, lesbarer werden
+* Es lässt Tests, durch den Einsatz einer Domain Specific Language, lesbarer werden
 
 == Wie schreibe ich einen Test?
 
 [source,groovy]
 ----
-include::{sourcedir}/ch/silviowangler/spock/intro/SimpleSpockSpec.groovy[tags=contains]
+include::{testSourcedir}/ch/silviowangler/spock/intro/SimpleSpockSpec.groovy[tags=contains]
 ----
+
+=== Wie schreibe ich einen Test?
+
+Spock Spezifikationen werden in http://groovy-lang.org/[Groovy^] Klassen implementiert.
 
 === Wie schreibe ich einen Test?
 
 [source,groovy]
 ----
-include::{sourcedir}/ch/silviowangler/spock/intro/SimpleSpockSpec.groovy[]
+include::{testSourcedir}/ch/silviowangler/spock/intro/SimpleSpockWithoutCommentsSpec.groovy[]
 ----
 
-=== Berechnen wir Fakultäten
+== Berechnen wir Fakultäten
 
 3! = 3 * 2 * 1 = 6
 
@@ -46,16 +50,38 @@ include::{sourcedir}/ch/silviowangler/spock/intro/SimpleSpockSpec.groovy[]
 
 [source,groovy]
 ----
-include::{sourcedir}/ch/silviowangler/spock/intro/FactorialSpec.groovy[tags=contains]
+include::{testSourcedir}/ch/silviowangler/spock/intro/FactorialSpec.groovy[tags=contains]
 ----
 
 === Anschauliche Resultate
 
 image::junit-runner-factorial.png[]
 
+== Arbeiten mit Mocks
+
+[source,java]
+----
+include::{sourcedir}/ch/silviowangler/spock/booking/BookingService.java[]
+----
+
+=== Arbeiten mit Mocks
+
+[source,groovy]
+----
+include::{testSourcedir}/ch/silviowangler/spock/intro/BookingSpec.groovy[tags=happy]
+----
+
+=== Arbeiten mit Mocks
+
+[source,groovy]
+----
+include::{testSourcedir}/ch/silviowangler/spock/intro/BookingSpec.groovy[tags=badpath]
+----
+
 == Unterlagen zu dieser Präsentation
 
-* Der Source Code findet sich unter https://github.com/saw303/spock-intro
+* Der Source Code findet sich auf https://github.com/saw303/spock-intro[GitHub^]
+* Mit Spock spielen kann man in der http://meetspock.appspot.com/[Spock Web Konsole^].
 
 == The End
 

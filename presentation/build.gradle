@@ -65,7 +65,8 @@ asciidoctor {
     backends 'revealjs'
     attributes \
         'build-gradle': file('build.gradle'),
-        'sourcedir': rootProject.subprojects.find { p -> p.name == 'code' }.sourceSets.test.groovy.srcDirs[0],
+        'testSourcedir': rootProject.subprojects.find { p -> p.name == 'code' }.sourceSets.test.groovy.srcDirs[0],
+        'sourcedir': rootProject.subprojects.find { p -> p.name == 'code' }.sourceSets.main.java.srcDirs[0],
         'endpoint-url': 'http://example.org',
         'source-highlighter': 'coderay',
         'imagesdir': './images',

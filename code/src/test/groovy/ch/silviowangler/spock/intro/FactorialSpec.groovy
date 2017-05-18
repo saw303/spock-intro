@@ -13,9 +13,9 @@ class FactorialSpec extends Specification {
     @Unroll
     void "Die Fakultät von #startNumber ist #expectedResult"()
     {
-        when:
+        when: 'eine Fakultät berechnet wird'
         long result = new Factorial().calc(startNumber)
-        then:
+        then: 'entspricht das Resultat der Erwartung'
         result == expectedResult
         where:
         startNumber || expectedResult
