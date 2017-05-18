@@ -12,21 +12,16 @@ plugins {
 
 apply plugin: 'com.github.jruby-gradle.base'
 apply plugin: 'org.ysb33r.vfs'
-apply plugin: 'java'
 apply plugin: 'org.asciidoctor.convert'
 
 version = '1.0.0-SNAPSHOT'
 
 ext {
-    revealjsVersion = '3.2.0'
+    revealjsVersion = '3.5.0'
     asciidoctorBackendVersion = 'master'
     downloadDir = new File(buildDir,'download')
     templateDir = new File(downloadDir,'templates')
     revealjsDir   = new File(downloadDir,'reveal.js')
-}
-
-repositories {
-    jcenter()
 }
 
 dependencies {
@@ -57,7 +52,7 @@ asciidoctorj {
 asciidoctor {
     dependsOn jrubyPrepare, download
     sources {
-        include 'example-deck.adoc'
+        include 'spock-intro.adoc'
     }
     resources {
         from (sourceDir) {
@@ -70,7 +65,7 @@ asciidoctor {
     backends 'revealjs'
     attributes \
         'build-gradle': file('build.gradle'),
-        'sourcedir': project.sourceSets.main.java.srcDirs[0],
+        'sourcedir': rootProject.subprojects.find { p -> p.name == 'code' }.sourceSets.test.groovy.srcDirs[0],
         'endpoint-url': 'http://example.org',
         'source-highlighter': 'coderay',
         'imagesdir': './images',
@@ -80,7 +75,7 @@ asciidoctor {
         'idprefix': 'slide-',
         'idseparator': '-',
         'docinfo1': '',
-        'revealjs_theme': 'black',
+        'revealjs_theme': 'league',
         'revealjs_transition': 'linear',
         'revealjs_history': 'true',
         'revealjs_slideNumber': 'true'

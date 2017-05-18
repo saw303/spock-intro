@@ -1,0 +1,53 @@
+= Spock Framework
+Silvio Wangler <silvio.wangler@gmail.com>
+2017-05-18
+:revnumber: {project-version}
+:example-caption!:
+
+== Einleitung
+
+=== Wer ist Silvio Wangler?
+
+[%step]
+* Entwickler mit Java, Groovy, Spring Hintergrund
+* 38 Jahre alt
+* lebt in Opfikon ZH, geboren und aufgewachsen in Zürich-Albisrieden
+* Ehemann und Vater
+
+
+=== Was ist Spock?
+
+[%step]
+* Ein Testing Framework für Java Applikationen
+* Inspiriert durch JUnit, Mockito, jMock, Groovy, Scala
+* Es lässt einem Spezifikationen für eine bestimmte Klasse oder eine ganze Applikation schreiben
+* Es lässt Tests, durch den Einsatz einer DSL, lesbarer werden
+
+== Wie schreibe ich einen Test?
+
+[source,groovy]
+----
+include::{sourcedir}/ch/silviowangler/spock/intro/SimpleSpockSpec.groovy[tags=contains]
+----
+
+=== Wie schreibe ich einen Test?
+
+[source,groovy]
+----
+include::{sourcedir}/ch/silviowangler/spock/intro/SimpleSpockSpec.groovy[]
+----
+
+=== Berechnen wir Fakultäten
+
+3! = 3 * 2 * 1 = 6
+
+=== Berechnen wir Fakultäten
+
+[source,groovy]
+----
+include::{sourcedir}/ch/silviowangler/spock/intro/FactorialSpec.groovy[tags=contains]
+----
+
+=== Anschauliche Resultate
+
+image::junit-runner-factorial.png[]
