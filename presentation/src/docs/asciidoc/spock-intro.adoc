@@ -13,6 +13,7 @@ Silvio Wangler <silvio.wangler@gmail.com>
 * 38 Jahre alt
 * lebt in Opfikon ZH, geboren und aufgewachsen in Zürich-Albisrieden
 * Ehemann und Vater
+* Weitere Angaben im https://www.silviowangler.ch[Profil^]
 
 
 === Was ist Spock?
@@ -51,3 +52,11 @@ include::{sourcedir}/ch/silviowangler/spock/intro/FactorialSpec.groovy[tags=cont
 === Anschauliche Resultate
 
 image::junit-runner-factorial.png[]
+
+== Unterlagen zu dieser Präsentation
+
+* Der Source Code findet sich unter https://github.com/saw303/spock-intro
+
+== The End
+
+Vielen Dank für Ihre Aufmerksamkeit.
