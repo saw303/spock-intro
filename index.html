@@ -145,14 +145,13 @@ table.CodeRay td.code>pre{padding:0}
     }
 }</code></pre></div></div></section></section>
 <section><section id="slide-berechnen-wir-fakultten"><h2>Berechnen wir Fakultäten</h2><div class="paragraph"><p>3! = 3 * 2 * 1 = 6</p></div></section><section id="slide-berechnen-wir-fakultten-2"><h2>Berechnen wir Fakultäten</h2><div class="listingblock"><div class="content"><pre class="CodeRay"><code class="groovy language-groovy">    <span class="annotation">@Unroll</span>
-    <span class="type">void</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Die Fakultät von #number ist #expResult</span><span class="delimiter">&quot;</span></span>()
+    <span class="type">void</span> <span class="string"><span class="delimiter">&quot;</span><span class="content">Die Fakultät von #number ist #result</span><span class="delimiter">&quot;</span></span>()
     {
-        <span class="key">when</span>: <span class="string"><span class="delimiter">'</span><span class="content">eine Fakultät berechnet wird</span><span class="delimiter">'</span></span>
-        <span class="type">long</span> result = Factorial.of(number)
-        <span class="key">then</span>: <span class="string"><span class="delimiter">'</span><span class="content">entspricht das Resultat der Erwartung</span><span class="delimiter">'</span></span>
-        result == expResult
-        <span class="key">where</span>: <span class="string"><span class="delimiter">'</span><span class="content">data map</span><span class="delimiter">'</span></span>
-        number || expResult
+        <span class="key">expect</span>: <span class="string"><span class="delimiter">'</span><span class="content">Die Fakultät wird korrekt berechntet</span><span class="delimiter">'</span></span>
+        Factorial.of(number) == result
+
+        <span class="key">where</span>: <span class="string"><span class="delimiter">'</span><span class="content">Datentabelle</span><span class="delimiter">'</span></span>
+        number || result
         <span class="integer">0L</span>     || <span class="integer">1L</span>
         <span class="integer">1L</span>     || <span class="integer">1L</span>
         <span class="integer">2L</span>     || <span class="integer">2L</span>
@@ -200,18 +199,19 @@ table.CodeRay td.code>pre{padding:0}
         <span class="key">given</span>:
         <span class="keyword">def</span> backend = Mock(BookingBackend)
         BookingService bookingService = <span class="keyword">new</span> BookingService(backend)
+        <span class="keyword">def</span> ex = <span class="keyword">new</span> BookingException()
 
         <span class="key">when</span>: <span class="string"><span class="delimiter">'</span><span class="content">zwei Tickets für die Veranstalung 22 gebucht werden</span><span class="delimiter">'</span></span>
         <span class="keyword">def</span> result = bookingService.bookEvent(<span class="string"><span class="delimiter">'</span><span class="content">22</span><span class="delimiter">'</span></span>, <span class="integer">2</span>)
 
-        <span class="key">then</span>: <span class="string"><span class="delimiter">'</span><span class="content">ist die Transaktion erfolgreich</span><span class="delimiter">'</span></span>
+        <span class="key">then</span>: <span class="string"><span class="delimiter">'</span><span class="content">ist die Transaktion nicht erfolgreich</span><span class="delimiter">'</span></span>
         !result
 
         <span class="key">and</span>:
-        <span class="integer">1</span> * backend.bookEvent(<span class="string"><span class="delimiter">'</span><span class="content">22</span><span class="delimiter">'</span></span>, <span class="integer">2</span>) &gt;&gt; { <span class="keyword">throw</span> <span class="keyword">new</span> BookingException() }
+        <span class="integer">1</span> * backend.bookEvent(<span class="string"><span class="delimiter">'</span><span class="content">22</span><span class="delimiter">'</span></span>, <span class="integer">2</span>) &gt;&gt; { <span class="keyword">throw</span> ex }
         <span class="integer">0</span> * _
     }</code></pre></div></div></section></section>
-<section id="slide-unterlagen-zu-dieser-prsentation"><h2>Unterlagen zu dieser Präsentation</h2><div class="ulist"><ul><li><p>Der Source Code findet sich auf <a href="https://github.com/saw303/spock-intro" target="_blank">GitHub</a></p></li><li><p>Mit Spock spielen kann man in der <a href="http://meetspock.appspot.com/" target="_blank">Spock Web Konsole</a>.</p></li><li><p>spockframework.org/spock/docs/[Spock Dokumentation^]</p></li></ul></div></section>
+<section id="slide-unterlagen-zu-dieser-prsentation"><h2>Unterlagen zu dieser Präsentation</h2><div class="ulist"><ul><li><p>Diese Präsentation ist unter <a href="https://saw303.github.io/spock-intro/" class="bare">https://saw303.github.io/spock-intro/</a> publiziert.</p></li><li><p>Der Source Code findet sich auf <a href="https://github.com/saw303/spock-intro" class="bare">https://github.com/saw303/spock-intro</a></p></li><li><p>Mit Spock spielen kann man in der Spock Web Konsole unter <a href="http://meetspock.appspot.com/" class="bare">http://meetspock.appspot.com/</a>.</p></li><li><p>Die Spock Dokumentation findet man unter <a href="http://spockframework.org/spock/docs/" class="bare">http://spockframework.org/spock/docs/</a></p></li></ul></div></section>
 <section id="slide-the-end"><h2>The End</h2><div class="paragraph"><p>Vielen Dank für Ihre Aufmerksamkeit.</p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
