@@ -3,15 +3,15 @@ package ch.silviowangler.spock.math;
 /**
  * @author Silvio Wangler
  */
-public class Factorial {
+public interface Factorial {
 
-  public long calc(long l) {
+  static long of(long l) {
 
     if (l < 1L ) {
       return 1L;
     }
     else {
-      return l * calc(--l);
+      return l * of(--l);
     }
   }
 }
