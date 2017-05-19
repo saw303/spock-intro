@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+eval $(ssh-agent) && ssh-add
+
 ./gradlew clean asciidoctor
 
 BASEDIR=presentation/build

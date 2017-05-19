@@ -80,9 +80,10 @@ include::{testSourcedir}/ch/silviowangler/spock/intro/BookingSpec.groovy[tags=ba
 
 == Unterlagen zu dieser Präsentation
 
-* Der Source Code findet sich auf https://github.com/saw303/spock-intro[GitHub^]
-* Mit Spock spielen kann man in der http://meetspock.appspot.com/[Spock Web Konsole^].
-* spockframework.org/spock/docs/[Spock Dokumentation^]
+* Diese Präsentation ist unter https://saw303.github.io/spock-intro/ publiziert.
+* Der Source Code findet sich auf https://github.com/saw303/spock-intro
+* Mit Spock spielen kann man in der Spock Web Konsole unter http://meetspock.appspot.com/.
+* Die Spock Dokumentation findet man unter http://spockframework.org/spock/docs/
 
 == The End
 

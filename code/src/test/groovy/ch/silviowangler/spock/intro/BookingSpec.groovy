@@ -34,15 +34,16 @@ class BookingSpec extends Specification {
         given:
         def backend = Mock(BookingBackend)
         BookingService bookingService = new BookingService(backend)
+        def ex = new BookingException()
 
         when: 'zwei Tickets für die Veranstalung 22 gebucht werden'
         def result = bookingService.bookEvent('22', 2)
 
-        then: 'ist die Transaktion erfolgreich'
+        then: 'ist die Transaktion nicht erfolgreich'
         !result
 
         and:
-        1 * backend.bookEvent('22', 2) >> { throw new BookingException() }
+        1 * backend.bookEvent('22', 2) >> { throw ex }
         0 * _
     }
     // end::badpath[]

@@ -11,14 +11,13 @@ class FactorialSpec extends Specification {
 
     // tag::contains[]
     @Unroll
-    void "Die Fakultät von #number ist #expResult"()
+    void "Die Fakultät von #number ist #result"()
     {
-        when: 'eine Fakultät berechnet wird'
-        long result = Factorial.of(number)
-        then: 'entspricht das Resultat der Erwartung'
-        result == expResult
-        where: 'data map'
-        number || expResult
+        expect: 'Die Fakultät wird korrekt berechntet'
+        Factorial.of(number) == result
+
+        where: 'Datentabelle'
+        number || result
         0L     || 1L
         1L     || 1L
         2L     || 2L
