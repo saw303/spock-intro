@@ -57,6 +57,12 @@ include::{testSourcedir}/ch/silviowangler/spock/intro/FactorialSpec.groovy[tags=
 
 image::junit-runner-factorial.png[]
 
+== Blöcke in Spock
+
+Was bedeuten die Blöcke `given`, `expect`, `when`, usw. in Spock?
+
+image::Blocks2Phases.png[]
+
 == Arbeiten mit Mocks
 
 [source,java]
