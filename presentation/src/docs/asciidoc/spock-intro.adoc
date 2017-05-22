@@ -13,7 +13,6 @@ Silvio Wangler <silvio.wangler@gmail.com>
 * 38 Jahre alt
 * lebt in Opfikon ZH, geboren und aufgewachsen in Zürich-Albisrieden
 * Ehemann und Vater
-* Weitere Angaben im https://www.silviowangler.ch[Profil^]
 
 
 === Was ist Spock?
